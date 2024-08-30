@@ -1,4 +1,5 @@
-alert('Este es nuestra guia para su vehiculo');
+alert('Bienvenido/a. Esta es nuestra guia para su vehiculo.');
+alert('Comencemos...');
 function registroUsuario() {
     let registro;
     do {
@@ -10,9 +11,9 @@ function registroUsuario() {
         }
 
         if (registro === "SI") {
-            alert('Excelente, indiquenos que tipo de combustible usa su vehiculo');
+            alert('Excelente, indiquenos que tipo de combustible usa su vehiculo.');
         } else {
-            alert('Gracias por usar nuestro servicio');
+            alert('Gracias por usar nuestro servicio.');
         }
 
     } while (registro === "NO");
@@ -28,22 +29,22 @@ const combustibles = [
         {
           nombre: "ypf",
           categorias: [
-            { nombre: "super", precio: 200 },
-            { nombre: "infinia", precio: 400 },
+            { nombre: "Super", precio: 1024 },
+            { nombre: "infinia Nafta", precio: 1251 },
           ],
         },
         {
           nombre: "shell",
           categorias: [
-            { nombre: "super", precio: 350 },
-            { nombre: "vpower", precio: 550 },
+            { nombre: "Super", precio: 1085 },
+            { nombre: "vpower", precio: 1350 },
           ],
         },
         {
           nombre: "axion",
           categorias: [
-            { nombre: "super", precio: 600 },
-            { nombre: "cuantium", precio: 700 },
+            { nombre: "Super", precio: 1015 },
+            { nombre: "cuantium", precio: 1120 },
           ],
         },
       ],
@@ -54,28 +55,27 @@ const combustibles = [
         {
           nombre: "ypf",
           categorias: [
-            { nombre: "diesel", precio: 200 },
-            { nombre: "infiniadiesel", precio: 400 },
+            { nombre: "Ultra Diesel", precio: 1114 },
+            { nombre: "infinia Diesel", precio: 1307 },
           ],
         },
         {
           nombre: "shell",
           categorias: [
-            { nombre: "evolux", precio: 350 },
-            { nombre: "vpowerdiesel", precio: 550 },
+            { nombre: "Evolux", precio: 1150 },
+            { nombre: "Vpower Diesel", precio: 1357 },
           ],
         },
         {
           nombre: "axion",
           categorias: [
-            { nombre: "diesel", precio: 600 },
-            { nombre: "cuantiumdiesel", precio: 700 },
+            { nombre: "Diesel", precio: 1025 },
+            { nombre: "Cuantium Diesel", precio: 1250 },
           ],
         },
       ],
     },
   ];
-  
 
 function seleccionarCombustible() {
     let combustibleElegido = prompt('Ingrese tipo de combustible. Ej: Nafta o Diesel.').toLowerCase();
@@ -86,26 +86,30 @@ function seleccionarCombustible() {
     console.log(`Combustible elegido: ${combustibleElegido}`);
     return combustibleElegido;
 }
-  
+
 function calcularLitrosPorEstaciones(combustibleSeleccionado, monto) {
     const combustible = combustibles.find((comb) => comb.tipo === combustibleSeleccionado);
     if (!combustible) {
       console.error('Tipo de combustible no encontrado');
       return;
     }
-    for (const estaciones of combustible.eess) {
-      for (const categoria of estaciones.categorias) {
+    combustible.eess.forEach(estacion => {
+    const categoriasFiltradas = estacion.categorias.filter(categoria => categoria.precio <= monto);
+      
+    if (categoriasFiltradas.length > 0) {
+      categoriasFiltradas.forEach(categoria => {
         const litrosEstacion = monto / categoria.precio;
-        console.log(`En ${estaciones.nombre} puedes cargar ${litrosEstacion.toFixed(2)} litros de ${combustible.tipo}, producto: ${categoria.nombre}`);
+        console.log(`En ${estacion.nombre} puedes cargar ${litrosEstacion.toFixed(2)} litros de ${combustible.tipo} ${categoria.nombre}`);
+        });
+      } else {
+        console.log(`En ${estacion.nombre} no hay categorías de ${combustible.tipo} dentro del rango de precio indicado.`);
       }
-    }
+    });
 }
-  
+
 const combustibleSeleccionado = seleccionarCombustible();
 const monto = Number(prompt('Ingrese monto a gastar'));
 calcularLitrosPorEstaciones(combustibleSeleccionado, monto);
   
-console.log('Para conducir debe ser mayor a 18 años, recuerde si conduce no beba alcohol.')
+console.log('Para conducir debe ser mayor a 18 años, recuerde si conduce no beba alcohol.');
 alert('Gracias por utilizar nuestro servicio.');
-
-
