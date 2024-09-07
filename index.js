@@ -106,7 +106,8 @@ function calcularLitrosPorEstaciones(combustibleSeleccionado, monto) {
       }
     });
 }
-
+const eess=['YPF', 'SHELL', 'AXION'];
+alert(`Contamos con las siguientes estaciones de servicio: ${eess}.`);
 const combustibleSeleccionado = seleccionarCombustible();
 const monto = Number(prompt('Ingrese monto a gastar'));
 calcularLitrosPorEstaciones(combustibleSeleccionado, monto);
