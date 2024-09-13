@@ -3,11 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css" type="text/css">
     <title>ProyectoFinal</title>
 </head>
 <body>
-    <h1>Bienvenidos</h1>
-    <p>Esta es una App Web para indicarle a nuestros usuarios el mejor lugar para abastecer su vehiculo</p>
-    <script src="./index.js"></script>
+    <header>
+        <h1>Bienvenidos</h1>
+        <p>Reder es una App Web para indicarle a nuestros usuarios el mejor lugar para abastecer su vehiculo</p>
+    </header>
+    <body>
+        <h1>Formulario de Registro de Vehículo</h1>
+
+        <div id="vehicleSection">
+          <p>¿Usted tiene vehículo?</p>
+          <button id="btnYes">Sí</button>
+          <button id="btnNo">No</button>
+        </div>
+        <!-- MENSAJE CUANDO EL USUARIO ELIGE NO -->
+        <div id="message" class="message"></div>
+        
+        <!-- FORMULARIO PARA ELEGIR TIPO DE COMBUSTIBLE -->
+        <form id="fuelForm" style="display:none;">
+            <div class="form-group">
+              <label for="fuelType">Ingrese tipo de combustible (Nafta o Diesel):</label>
+              <input type="text" id="fuelType" name="fuelType">
+            </div>
+            <div class="form-group">
+              <label for="amount">Ingrese monto a gastar:</label>
+              <input type="number" id="amount" name="amount" min="0">
+            </div>
+            <button type="button" id="btnCalculate">Calcular</button>
+        </form>
+        <div id="result"></div>
+    <footer id="footer">Copyrigth: Reder CO</footer>
+    <script src="./js/index.js"></script>
 </body>
 </html>
