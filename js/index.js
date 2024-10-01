@@ -113,7 +113,7 @@ async function calcularLitrosPorEstaciones(combustibleSeleccionado, monto) {
     imageUrl: `./assets/eess.png`,
     imageWidth: `100%`,
     imageHeight: 200,
-    imageAlt: "Estaciones de Servicio",
+    imageAlt: "Custom Image",
   });
   location.reload(); // refresca la página actual
 }
